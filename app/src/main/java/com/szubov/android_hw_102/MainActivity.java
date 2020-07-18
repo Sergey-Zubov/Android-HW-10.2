@@ -60,17 +60,8 @@ public class MainActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String mSelectedItem = ((TextView)view.findViewById(R.id.textView1)).
-                        getText().toString() + ((TextView)view.findViewById(R.id.textView2)).
-                        getText().toString();
-                for (int i = 0; i < mArrayList.size(); i++) {
-                    if (mSelectedItem.equals(mArrayList.get(i).get(KEY1) +
-                            mArrayList.get(i).get(KEY2))) {
-                        mArrayList.remove(i);
-                        mListContentAdapter.notifyDataSetChanged();
-                        break;
-                    }
-                }
+                mArrayList.remove(position);
+                mListContentAdapter.notifyDataSetChanged();
             }
         });
     }
